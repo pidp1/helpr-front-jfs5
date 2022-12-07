@@ -9,7 +9,7 @@ import { CargoService } from 'src/app/services/cargo.service';
 })
 export class CargosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
+  displayedColumns: string[] = ['idCargo', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
   dataSource: Cargo[] = []
 
   constructor(
