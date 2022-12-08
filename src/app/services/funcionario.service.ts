@@ -24,4 +24,24 @@ export class FuncionarioService {
   )
  }
 
+ public save(funcionario: Funcionario): Observable<Funcionario> {
+  return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionario).pipe(
+    catchError(error => {
+      this.toastr.error('Erro ao cadastrar funcionário!')
+      console.error(error)
+      return EMPTY
+    })
+  )
+}
+
+public delete(id: number): Observable<Funcionario> {
+  return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+    catchError(error => {
+      this.toastr.error("Erro ao excluir funcionário!");
+      console.error(error);
+      return EMPTY;
+    })
+  )
+}
+
 }

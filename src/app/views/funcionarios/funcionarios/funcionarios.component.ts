@@ -24,4 +24,11 @@ export class FuncionariosComponent implements OnInit {
     });
   }
 
+  public delete(id: number) {
+    this.funcionarioService.delete(id).subscribe(
+      ()=> {this.initializeTableFuncionarios()}
+      
+    )
+  }
+
 }
