@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
     formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public dialog: MatDialog
   ) {
     this.formLogin = formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -27,6 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.openDialog()
+  }
+
+  openDialog(): void {
+    this.dialog.open(DialogComponent, {
+      width: '60vw'
+    });
   }
 
   public signIn(): void {

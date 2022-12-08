@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
+.dialog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog img {
+    width: 100%;
+}
