@@ -34,6 +34,37 @@ export class FuncionarioService {
   )
 }
 
+public findById(id: string): Observable<Funcionario> {
+  return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+    catchError(error => {
+      this.toastr.error("Erro ao buscar funcionário por id!");
+      console.error(error);
+      return EMPTY;
+    })
+  )
+}
+
+public update(funcionario: Funcionario): Observable<Funcionario> {
+  const funcionarioDTO = {
+    nome: funcionario.nome,
+    email: funcionario.email,
+    cpf: funcionario.cpf,
+    senha: funcionario.senha,
+    foto: funcionario.foto,
+    idCargo: funcionario.cargo.idCargo
+  } 
+  
+  return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, funcionarioDTO).pipe(
+    catchError(error => {
+      this.toastr.error("Erro ao atualizar funcionário!");
+      console.error(error);
+      return EMPTY;
+    })
+  )
+
+}
+
+
 public delete(id: number): Observable<Funcionario> {
   return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
     catchError(error => {
