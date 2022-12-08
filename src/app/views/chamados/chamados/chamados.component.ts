@@ -11,6 +11,7 @@ export class ChamadosComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'funcionario', 'dataAbertura', 'status', 'editar', 'detalhes'];
   dataSource: Chamado[] = [];
+  
 
   constructor(private chamadoService: ChamadoService) { }
 

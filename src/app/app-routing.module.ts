@@ -29,7 +29,8 @@ const routes: Routes = [
   loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule) 
   },
 
-  { path: 'faq', loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) }
+  { path: 'faq', 
+  loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) }
 
 ];
 
