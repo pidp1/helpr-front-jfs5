@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  
   {
     path: 'login',
     loadChildren: () => import("./views/login/login.module").then(m => m.LoginModule)
@@ -28,7 +29,8 @@ const routes: Routes = [
   loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule) 
   },
 
-  { path: 'faq', loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) }
+  { path: 'faq', 
+  loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) }
 
 ];
 
