@@ -8,10 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
+import { TelefonePipe } from './pipes/telefone.pipe';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TelefonePipe,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
