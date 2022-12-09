@@ -10,6 +10,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { TelefonePipe } from './pipes/telefone.pipe';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { CpfPipe } from './pipes/cpf.pipe';
       timeOut: 4000,
       progressBar: true,
       closeButton: true,
-    })
+    }),
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [
     {

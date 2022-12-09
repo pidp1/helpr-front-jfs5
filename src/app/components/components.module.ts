@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DialogComponent } from './dialog/dialog.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -13,7 +15,10 @@ import { DialogComponent } from './dialog/dialog.component';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+ 
+    ReactiveFormsModule,
+    
   ],
   exports: [
     NavBarComponent
