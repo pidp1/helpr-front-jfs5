@@ -23,4 +23,14 @@ export class CargoService {
     )
   }
 
+  public delete(id: number): Observable<Cargo> {
+    return this.http.delete<Cargo>(`${API_CONFIG.baseUrl}/cargos/${id}`).pipe(
+      catchError(error => {
+        this.toastr.error("Erro ao excluir cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
 }
