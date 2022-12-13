@@ -7,22 +7,14 @@
                 <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" formControlName="nome">
             </mat-form-field>
             <mat-form-field class="full-width" appearance="fill">
-                <mat-label>CPF</mat-label>
-                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" formControlName="cpf">
+                <mat-label>Descrição</mat-label>
+                <input type="text" name="descricao" matInput placeholder="Ex. Gerencia a empresa" formControlName="descricao">
             </mat-form-field>
             <mat-form-field class="full-width" appearance="fill">
-                <mat-label>E-mail</mat-label>
-                <input type="email" name="email" matInput placeholder="Ex. gabriel@mail.com" formControlName="email">
+                <mat-label>Salário</mat-label>
+                <input type="text" name="salario" matInput placeholder="Ex. 30000.0" formControlName="salario">
             </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Telefone</mat-label>
-                <input type="tel" name="telefone" matInput formControlName="telefone">
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <input type="password" name="senha" matInput formControlName="senha">
-            </mat-form-field>
-
+            
             <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/cargos">Cancelar</a>
         </form>

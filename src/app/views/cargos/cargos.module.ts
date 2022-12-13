@@ -7,12 +7,14 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { NewCargoComponent } from './new-cargo/new-cargo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
 
 
 @NgModule({
   declarations: [
     CargosComponent,
-    NewCargoComponent
+    NewCargoComponent,
+    EditCargoComponent
   ],
   imports: [
     CommonModule,
