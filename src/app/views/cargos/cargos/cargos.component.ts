@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
 
@@ -13,7 +14,8 @@ export class CargosComponent implements OnInit {
   dataSource: Cargo[] = []
 
   constructor(
-    private cargoService: CargoService
+    private cargoService: CargoService, 
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,16 @@ export class CargosComponent implements OnInit {
     this.cargoService.findAll().subscribe(cargo => {
       this.dataSource = cargo;
     })
+  }
+
+  public delete(id: number): void{
+    let ok= confirm("Tem certeza que deseja excluir?");
+    if(ok){
+      this.cargoService.delete(id).subscribe(()=>{
+        this.toastr.success("Cargo excluido.");
+        this.initializeTableCargos();
+      })
+    }
   }
 
 }
