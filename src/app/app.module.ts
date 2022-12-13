@@ -13,12 +13,11 @@ import { CpfPipe } from './pipes/cpf.pipe';
 import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
-
 @NgModule({
   declarations: [
     AppComponent,
     TelefonePipe,
-    CpfPipe
+    CpfPipe,
   ],
   imports: [
     BrowserModule,
