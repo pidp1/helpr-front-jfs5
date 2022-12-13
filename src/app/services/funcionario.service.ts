@@ -7,14 +7,18 @@ import { API_CONFIG } from '../config/api.config';
 import { Funcionario } from '../models/funcionario';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class FuncionarioService {
 
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  constructor(
+    private http: HttpClient, 
+    private toastr: ToastrService,
+    ) { }
 
- public findAll(): Observable<Funcionario[]>{
+public findAll(): Observable<Funcionario[]>{
   return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
     catchError(error=>{
       this.toastr.error("Erro ao buscar dados dos funcionários")
@@ -22,9 +26,9 @@ export class FuncionarioService {
       return EMPTY;
     })
   )
- }
+}
 
- public save(funcionario: Funcionario): Observable<Funcionario> {
+public save(funcionario: Funcionario): Observable<Funcionario> {
   return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionario).pipe(
     catchError(error => {
       this.toastr.error('Erro ao cadastrar funcionário!')
@@ -74,5 +78,4 @@ public delete(id: number): Observable<Funcionario> {
     })
   )
 }
-
 }

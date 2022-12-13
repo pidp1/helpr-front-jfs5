@@ -10,15 +10,17 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { TelefonePipe } from './pipes/telefone.pipe';
 import { CpfPipe } from './pipes/cpf.pipe';
-import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
+import { FotoPipe } from './pipes/foto.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TelefonePipe,
-    CpfPipe
+    CpfPipe,
+    FotoPipe
   ],
   imports: [
     BrowserModule,
