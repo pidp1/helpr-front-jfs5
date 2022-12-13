@@ -1,0 +1,26 @@
+.full-width {
+    width: 100%;
+}
+
+.double-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.double-width .full-width {
+    width: 48%;
+}
+
+.btn-close {
+    margin-top: 30px;
+    color: #FFFFFF;
+}
+
+.upload-photo {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #BABABA;
+    border-radius: 5px;
+    cursor: pointer;
+}

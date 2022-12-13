@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, from, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { API_CONFIG } from '../config/api.config';
 import { Funcionario } from '../models/funcionario';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 
 @Injectable({
@@ -12,7 +13,12 @@ import { Funcionario } from '../models/funcionario';
 })
 export class FuncionarioService {
 
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  constructor(
+    private http: HttpClient, 
+    private toastr: ToastrService,
+    private storage: AngularFireStorage
+  
+    ) { }
 
  public findAll(): Observable<Funcionario[]>{
   return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
@@ -22,9 +28,9 @@ export class FuncionarioService {
       return EMPTY;
     })
   )
- }
+}
 
- public save(funcionario: Funcionario): Observable<Funcionario> {
+public save(funcionario: Funcionario): Observable<Funcionario> {
   return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionario).pipe(
     catchError(error => {
       this.toastr.error('Erro ao cadastrar funcionário!')
@@ -43,5 +49,30 @@ public delete(id: number): Observable<Funcionario> {
     })
   )
 }
+
+public adicionarImagem(img: File): Observable<any>{
+  const promise = this.storage.upload(`fotos/${Date.now()}`, img);
+
+  return from(promise).pipe(
+    catchError(error => {
+      this.toastr.error('Erro ao fazer upload da imagem');
+      console.error(error);
+      return EMPTY;
+    })
+  );
+}
+
+public deleteFoto(img: string): Observable<any>{
+  const promise = this.storage.refFromURL(img).delete();
+
+  return from(promise).pipe(
+    catchError(error => {
+      this.toastr.error("Erro deletarr a imagem.");
+      console.error(error);
+      return EMPTY;
+    })
+  );
+}
+
 
 }

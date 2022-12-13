@@ -11,3 +11,44 @@ form button {
 .margin {
     margin-right: 15px;
 }
+
+.double-width {
+    width: 300px;
+}
+
+.double-width mat-form-field {
+    width: 85%;
+}
+
+.img {
+    width: 300px;
+    position: relative;
+}
+
+.img::after {
+    content: 'CLIQUE AQUI';
+    position: absolute;
+    top: 38%;
+    left: 25%;
+    font-size: 25px;
+    font-weight: bold;
+    filter:alpha(opacity=50);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+    opacity:.50;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.452);
+}
+
+.double-width img {
+    width: 315px;
+    height: 280px;
+    cursor: pointer;
+}
+
+.double-width img:hover {
+    filter:  contrast(200%);
+}
+
+.btn-add-img::-webkit-file-upload-button,
+.btn-add-img {
+    display: none;
+}

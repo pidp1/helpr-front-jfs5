@@ -3,6 +3,7 @@ import { NewClienteComponent } from './new-cliente/new-cliente.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientesComponent } from './clientes/clientes.component';
+import { FututoClienteComponent } from './fututo-cliente/fututo-cliente.component';
 
 const routes: Routes = [
   {
@@ -16,11 +17,16 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditClienteComponent
+  },
+  {
+    path: 'futurocliente',
+    component: FututoClienteComponent
   }
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class ClientesRoutingModule { }

@@ -3,8 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig:
+  {
+    apiKey: "AIzaSyCn6UuUepsdspTrN4QlPpccIL3pDAamYSg",
+    authDomain: "helpr-front-jfs5.firebaseapp.com",
+    projectId: "helpr-front-jfs5",
+    storageBucket: "helpr-front-jfs5.appspot.com",
+    messagingSenderId: "572742155400",
+    appId: "1:572742155400:web:d91889e9246058ea00f33d"
+  },
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

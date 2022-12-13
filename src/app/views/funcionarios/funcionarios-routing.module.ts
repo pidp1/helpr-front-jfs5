@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
+import { PerfilFuncionarioComponent } from './perfil-funcionario/perfil-funcionario.component';
 
 const routes: Routes = [
   { 
@@ -10,7 +11,11 @@ const routes: Routes = [
   },
   { 
     path: 'new', 
-    component: NewFuncionarioComponent 
+    component: NewFuncionarioComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilFuncionarioComponent
   }
 ];
 

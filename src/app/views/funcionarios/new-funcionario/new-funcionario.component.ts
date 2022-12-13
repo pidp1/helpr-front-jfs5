@@ -18,6 +18,10 @@ export class NewFuncionarioComponent implements OnInit {
 
   public cargos: Cargo[] = []
 
+
+  public fotoUrl: String = ""
+  public isLoadUpload: boolean = false
+
   constructor(
     formBuilder: FormBuilder, 
     private funcionarioService: FuncionarioService,
@@ -33,7 +37,7 @@ export class NewFuncionarioComponent implements OnInit {
       foto: [''],
       idCargo: ['', [Validators.required]],
     })
-   }
+}
 
   ngOnInit(): void {
     this.initializeCargosField()
@@ -56,6 +60,20 @@ export class NewFuncionarioComponent implements OnInit {
         })
       )
     }
+  }
+
+  public uploadFile(event: any): void {
+    console.log("chegou no uploadTS")
+    this.isLoadUpload = true;
+    const file: File = event.target.files[0];
+    this.funcionarioService.adicionarImagem(file).subscribe(uploadResult  => {
+      this.isLoadUpload = false;
+      const storageReference = uploadResult.ref;
+      const promiseFileUrl = storageReference.getDownloadURL();
+      promiseFileUrl.then((fotoUrl: string) => {
+        this.fotoUrl = fotoUrl;
+      })
+    });
   }
 
 }

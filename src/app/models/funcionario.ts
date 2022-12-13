@@ -8,5 +8,5 @@ export interface Funcionario {
     senha?: string;
     perfil?: string;
     foto?: string;
-    cargo: Cargo
+    cargo?: Cargo
 }

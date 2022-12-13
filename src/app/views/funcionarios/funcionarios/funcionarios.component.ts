@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/models/funcionario';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-funcionarios',
@@ -12,7 +13,10 @@ export class FuncionariosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'cargo', 'foto', 'editar', 'excluir'];
   dataSource: Funcionario[] = [];
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.initializeTableFuncionarios();
@@ -24,9 +28,14 @@ export class FuncionariosComponent implements OnInit {
     });
   }
 
-  public delete(id: number) {
+  public delete(id: number, link: string): void {
+    if(link != ""){
+      this.funcionarioService.deleteFoto(link);
+    };
     this.funcionarioService.delete(id).subscribe(
-      ()=> {this.initializeTableFuncionarios()}
+      ()=> {
+        this.toastr.success('Funcionário excluído.')
+        this.initializeTableFuncionarios()}
       
     )
   }

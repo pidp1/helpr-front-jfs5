@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.authService.authenticate(credenciais).subscribe(response => {
         this.toastr.success("Bem-vindo(a)!", "Login efetuado com sucesso");
         this.router.navigate(["/home"]);
+        console.log()
       });
     }
     else {

@@ -31,6 +31,7 @@
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Foto</mat-label>
                 <input type="text" name="foto" matInput placeholder="Link da imagem" formControlName="foto">
+                <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
                 <mat-hint>Informe endereço (URL) da foto do funcionário.</mat-hint>
             </mat-form-field>
 
@@ -39,6 +40,16 @@
                 <input type="password" name="senha" matInput formControlName="senha">
                 <mat-error>É obrigatório cadastrar senha do funcionário!</mat-error>
             </mat-form-field>
+
+            <div class="double-width">
+                <fieldset class="img">
+                    <legend>Selecione uma foto: *</legend>
+                    <img src="{{ fotoUrl }}"  (click)="inputFile.click()">
+                    <input class="btn-add-img" #inputFile type="file" (change)="uploadFile($event)">
+                    <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
+                    <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
+                </fieldset>
+            </div>
 
             <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>
