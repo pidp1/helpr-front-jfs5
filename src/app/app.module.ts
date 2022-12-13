@@ -14,7 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
 import { FotoPipe } from './pipes/foto.pipe';
 
-
 @NgModule({
   declarations: [
     AppComponent,

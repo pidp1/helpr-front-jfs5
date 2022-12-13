@@ -8,21 +8,23 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes/clientes.component';
 import { NewClienteComponent } from './new-cliente/new-cliente.component';
 import { EditClienteComponent } from './edit-cliente/edit-cliente.component';
+import { FuturosClientesComponent } from './futuros-clientes/futuros-clientes.component';
 
 
 @NgModule({
   declarations: [
     ClientesComponent,
     NewClienteComponent,
-    EditClienteComponent
+    EditClienteComponent,
+    FuturosClientesComponent
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     ClientesRoutingModule,
     ComponentsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class ClientesModule { }

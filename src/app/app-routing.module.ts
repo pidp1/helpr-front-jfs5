@@ -34,7 +34,9 @@ const routes: Routes = [
   },
 
   { path: 'faq', 
-  loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) }
+  loadChildren: () => import('./views/faqs/faqs.module').then(m => m.FaqsModule) },
+  
+  { path: 'futurocandidato', loadChildren: () => import('./views/futuro-candidato/futuro-candidato.module').then(m => m.FuturoCandidatoModule) }
 
 ];
 
