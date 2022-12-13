@@ -33,7 +33,7 @@ export class NewFuncionarioComponent implements OnInit {
       foto: [''],
       idCargo: ['', [Validators.required]],
     })
-   }
+}
 
   ngOnInit(): void {
     this.initializeCargosField()
@@ -57,5 +57,4 @@ export class NewFuncionarioComponent implements OnInit {
       )
     }
   }
-
 }
